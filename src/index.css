@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+  
+  --radius-3xl: 24px;
+  
+  --color-primary: #0ea5e9; 
+  --color-secondary: #6c7ae0;
+  --color-success: #10b981;
+  --color-warning: #f59e0b;
+  --color-danger: #ef4444;
+  
+  --color-background: #060d1c;
+  --color-panel: #0c1527;
+  --color-card: #121b2f;
+  --color-border-dark: #212c4f;
+
+  --color-text: #dde6ff;
+  --color-textSecondary: #9ca3af;
+  --color-textMuted: #6b7280;
+}
+
+html {
+  color-scheme: dark;
+}
+
+body {
+  @apply bg-background text-text font-sans antialiased;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 5px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  @apply bg-white/5 rounded-full hover:bg-white/10 transition-colors;
+}
+
+/* 覆盖手写的 border-white/5 /10 等透明度低的边框，提升对比度和清晰度，使其呈现天蓝色微光质感 */
+.border-white\/5 {
+  border-color: rgba(56, 189, 248, 0.12) !important;
+}
+
+.border-white\/10 {
+  border-color: rgba(56, 189, 248, 0.22) !important;
+}
+
+.border-white\/20 {
+  border-color: rgba(56, 189, 248, 0.35) !important;
+}
+
+.border-t.border-white\/5 {
+  border-color: rgba(56, 189, 248, 0.15) !important;
+}
+
+.border-b.border-white\/5 {
+  border-color: rgba(56, 189, 248, 0.15) !important;
+}
+
+.border-r.border-white\/5 {
+  border-color: rgba(56, 189, 248, 0.15) !important;
+}
+
+.border-dashed.border-white\/10 {
+  border-color: rgba(56, 189, 248, 0.25) !important;
+}
+
