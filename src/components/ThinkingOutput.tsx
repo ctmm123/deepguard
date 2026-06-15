@@ -25,11 +25,42 @@ export default function ThinkingOutput({ steps, result }: ThinkingOutputProps) {
 
   if (steps.length === 0) {
     return (
-      <div className="flex-1 flex flex-col items-center justify-center opacity-20 pointer-events-none">
-        <div className="w-32 h-32 border border-dashed border-primary/50 rounded-full flex items-center justify-center animate-[spin_10s_linear_infinite]">
-          <div className="w-4 h-4 bg-primary" />
+      <div className="flex-1 flex flex-col items-center justify-center pointer-events-none relative overflow-hidden">
+        {/* 外层虚线圆环 */}
+        <div className="relative w-36 h-36 flex items-center justify-center">
+          {/* 雷达扫描/微光背景 */}
+          <div className="absolute inset-0 rounded-full bg-primary/5 blur-xl animate-pulse" />
+          
+          {/* 旋转的虚线圈 */}
+          <div className="absolute inset-0 border border-dashed border-primary/30 rounded-full animate-[spin_20s_linear_infinite]" />
+          
+          {/* 内层反向旋转的虚线圈 */}
+          <div className="absolute inset-2 border border-dotted border-secondary/20 rounded-full animate-[spin_10s_linear_infinite_reverse]" />
+          
+          {/* 中央发光菱形 */}
+          <motion.div 
+            animate={{ 
+              scale: [1, 1.15, 1],
+              opacity: [0.6, 1, 0.6],
+              rotate: [45, 45, 45]
+            }}
+            transition={{
+              duration: 3,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
+            className="w-5 h-5 bg-primary shadow-[0_0_25px_rgba(14,165,233,0.8)] border border-cyan-300/30"
+          />
         </div>
-        <p className="mt-8 text-[11px] font-mono tracking-[0.5em] uppercase">SYSTEM IDLE: WAITING FOR INPUT</p>
+        
+        {/* 系统空闲状态文字 */}
+        <motion.p 
+          animate={{ opacity: [0.5, 0.9, 0.5] }}
+          transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+          className="mt-8 text-[11px] font-mono tracking-[0.6em] text-primary font-bold uppercase drop-shadow-[0_0_8px_rgba(14,165,233,0.3)] pl-[0.6em]"
+        >
+          SYSTEM IDLE: WAITING FOR INPUT
+        </motion.p>
       </div>
     );
   }
