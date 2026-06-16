@@ -61,7 +61,7 @@ export default function ResultModal({ result, onClose }: ResultModalProps) {
                   <p className="opacity-40 mb-1 text-[10px] font-mono">[{line.timestamp}]</p>
                   <p>
                     <span className={line.role === "caller" ? "text-secondary font-bold" : "text-danger font-bold"}>
-                      {line.role === "caller" ? "CALLER" : "CALLEE"}
+                      {line.role === "caller" ? "主叫" : "被叫"}
                     </span>
                     <span className="opacity-70">: {line.text}</span>
                   </p>
@@ -159,12 +159,12 @@ export default function ResultModal({ result, onClose }: ResultModalProps) {
 
           <div className="p-6 bg-background/50 rounded-xl border border-white/5 flex-1 flex flex-col">
              <div className="flex items-center justify-between mb-4">
-                <span className="text-[10px] uppercase text-textMuted tracking-widest">智能处置策略</span>
+                <span className="text-[10px] uppercase text-white/80 tracking-widest">智能处置策略</span>
                 <div className={`px-2 py-0.5 rounded text-[9px] font-bold uppercase ${result.strategy.confidence > 80 ? 'bg-success text-background' : 'bg-warning text-background'}`}>
                    {result.strategy.confidence > 80 ? 'AUTO ENFORCED' : 'MANUAL REVIEW REQ'}
                 </div>
              </div>
-             <p className="text-sm text-textSecondary leading-relaxed italic mb-8">
+             <p className="text-sm text-white/80 leading-relaxed italic mb-8">
                 "{result.strategy.reasoning}"
              </p>
              

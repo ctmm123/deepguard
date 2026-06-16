@@ -1,7 +1,7 @@
 
 import { useState } from "react";
 import { AnimatePresence } from "motion/react";
-import { Search, Play } from "lucide-react";
+import { Search, Play, RotateCcw } from "lucide-react";
 import MochiRobot from "./components/MochiRobot";
 import Header from "./components/Header";
 import ThinkingOutput from "./components/ThinkingOutput";
@@ -89,9 +89,10 @@ export default function App() {
               {phase === AppStatus.RESULT && (
                 <button 
                   onClick={reset}
-                  className="mt-8 px-8 py-3 bg-white/5 border border-white/10 rounded-2xl text-xs font-bold text-[#9ca3af] uppercase tracking-widest hover:bg-white/10 transition-all active:scale-95 shadow-sm"
+                  className="mt-8 px-8 py-3 bg-white/5 border border-white/10 rounded-2xl text-xs font-bold text-white uppercase tracking-widest hover:bg-white/10 transition-all active:scale-95 shadow-sm flex items-center gap-2"
                 >
-                  Restart Analysis
+                  <RotateCcw size={14} />
+                  <span>重新分析</span>
                 </button>
               )}
             </div>

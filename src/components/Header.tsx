@@ -6,7 +6,7 @@ export default function Header() {
     <header className="flex items-center justify-between px-8 py-4 bg-panel border-b border-white/5 relative z-50">
       <div className="flex items-center gap-3">
         <img src={logo} className="w-10 h-10 object-contain filter drop-shadow-[0_2px_8px_rgba(14,165,233,0.35)]" alt="DEEPGUARD Logo" />
-        <div className="flex flex-col">
+        <div className="flex flex-col h-10 justify-between py-0.5">
           <h1 
             className="text-2xl font-black tracking-wider leading-none"
             style={{
