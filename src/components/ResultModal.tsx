@@ -10,9 +10,9 @@ interface ResultModalProps {
 }
 
 const riskStyles = {
-  [RiskLevel.LOW]: { text: "text-success", bg: "bg-success", badge: "bg-success/20", icon: ShieldCheck, label: "低风险" },
-  [RiskLevel.MEDIUM]: { text: "text-warning", bg: "bg-warning", badge: "bg-warning/20", icon: ShieldAlert, label: "中风险" },
-  [RiskLevel.HIGH]: { text: "text-danger", bg: "bg-danger", badge: "bg-danger/20", icon: ShieldX, label: "高风险" },
+  [RiskLevel.LOW]: { text: "text-success", bg: "bg-success/5", border: "border-success", hoverBorder: "hover:border-success/30", icon: ShieldCheck, label: "低风险" },
+  [RiskLevel.MEDIUM]: { text: "text-warning", bg: "bg-warning/5", border: "border-warning", hoverBorder: "hover:border-warning/30", icon: ShieldAlert, label: "中风险" },
+  [RiskLevel.HIGH]: { text: "text-danger", bg: "bg-danger/5", border: "border-danger", hoverBorder: "hover:border-danger/30", icon: ShieldX, label: "高风险" },
 };
 
 export default function ResultModal({ result, onClose }: ResultModalProps) {
@@ -97,11 +97,11 @@ export default function ResultModal({ result, onClose }: ResultModalProps) {
           <div className="grid grid-cols-2 gap-4 mb-6">
              <div className="p-4 bg-background/50 rounded-xl border border-white/5 group hover:border-primary/20 transition-colors flex justify-between items-center">
                 <div className="flex flex-col">
-                  <div className="text-[10px] uppercase text-textMuted mb-2 tracking-widest flex items-center gap-1.5">
+                  <div className="text-[10px] uppercase text-white font-medium mb-2 tracking-widest flex items-center gap-1.5">
                      <Info size={10} className="text-primary" />
                      业务类目
                   </div>
-                  <span className="text-lg font-bold text-text tracking-tight">{result.category.label}</span>
+                  <span className="text-lg font-bold text-white tracking-tight">{result.category.label}</span>
                 </div>
                 <div className="relative w-12 h-12">
                   <svg className="w-full h-full -rotate-90" viewBox="0 0 36 36">
@@ -125,13 +125,13 @@ export default function ResultModal({ result, onClose }: ResultModalProps) {
                   </div>
                 </div>
              </div>
-             <div className={`p-4 rounded-xl border ${style.badge} ${style.bg}/5 group hover:border-${style.bg}/30 transition-colors flex justify-between items-center`}>
+             <div className={`p-4 rounded-xl border ${style.border} ${style.bg} ${style.hoverBorder} transition-colors flex justify-between items-center`}>
                 <div className="flex flex-col">
-                  <div className="text-[10px] uppercase text-textMuted mb-2 tracking-widest flex items-center gap-1.5">
+                  <div className="text-[10px] uppercase text-white font-medium mb-2 tracking-widest flex items-center gap-1.5">
                      <Icon size={10} className={style.text} />
                      风险评估
                   </div>
-                  <span className={`text-lg font-black tracking-tight ${style.text}`}>{style.label}</span>
+                  <span className="text-lg font-black tracking-tight text-white">{style.label}</span>
                 </div>
                 <div className="relative w-12 h-12">
                   <svg className="w-full h-full -rotate-90" viewBox="0 0 36 36">
@@ -171,19 +171,19 @@ export default function ResultModal({ result, onClose }: ResultModalProps) {
              <div className="grid grid-cols-3 gap-3 mt-auto">
                 <button 
                   onClick={() => handleAction("操作成功：已忽略此分析报告")}
-                  className="px-4 py-2.5 border border-white/10 rounded-lg text-[10px] font-bold uppercase tracking-widest hover:bg-white/5 transition-all"
+                  className="px-4 py-2.5 border border-white/10 rounded-lg text-[14px] font-bold uppercase tracking-widest hover:bg-white/5 transition-all"
                 >
                    忽略
                 </button>
                 <button 
                   onClick={() => handleAction("操作成功：该号码已加入风险黑名单")}
-                  className="px-4 py-2.5 border border-danger/30 bg-danger/10 text-danger rounded-lg text-[10px] font-bold uppercase tracking-widest hover:bg-danger/20 transition-all"
+                  className="px-4 py-2.5 border border-danger/30 bg-danger/10 text-danger rounded-lg text-[14px] font-bold uppercase tracking-widest hover:bg-danger/20 transition-all"
                 >
                    黑名单
                 </button>
                 <button 
                   onClick={() => handleAction("操作成功：自动处置策略已确认执行")}
-                  className="px-4 py-2.5 bg-gradient-to-r from-sky-500 to-blue-600 hover:from-sky-400 hover:to-blue-500 text-white rounded-xl text-[10px] font-bold uppercase tracking-widest transition-all active:scale-95 shadow-[0_0_20px_rgba(14,165,233,0.35)] cursor-pointer"
+                  className="px-4 py-2.5 bg-gradient-to-r from-sky-500 to-blue-600 hover:from-sky-400 hover:to-blue-500 text-white rounded-xl text-[14px] font-bold uppercase tracking-widest transition-all active:scale-95 shadow-[0_0_20px_rgba(14,165,233,0.35)] cursor-pointer"
                 >
                    确认策略
                 </button>
