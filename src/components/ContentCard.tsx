@@ -68,7 +68,51 @@ export function DataContent({ items }: { items: string[] }) {
   );
 }
 
-export function ReasoningContent({ text, probability }: { text: string; probability?: number }) {
+interface ReasoningContentProps {
+  text: string;
+  probability?: number;
+  variant?: "success" | "warning" | "danger" | "info";
+  labelType?: "confidence" | "probability";
+}
+
+export function ReasoningContent({ 
+  text, 
+  probability, 
+  variant, 
+  labelType = "probability" 
+}: ReasoningContentProps) {
+  let barColor = "bg-success";
+  let textColor = "text-primary";
+  
+  if (variant) {
+    if (variant === "danger") {
+      barColor = "bg-danger";
+      textColor = "text-danger";
+    } else if (variant === "warning") {
+      barColor = "bg-warning";
+      textColor = "text-warning";
+    } else if (variant === "success") {
+      barColor = "bg-success";
+      textColor = "text-success";
+    } else {
+      barColor = "bg-primary";
+      textColor = "text-primary";
+    }
+  } else if (probability !== undefined) {
+    if (probability > 80) {
+      barColor = "bg-danger";
+      textColor = "text-danger";
+    } else if (probability > 50) {
+      barColor = "bg-warning";
+      textColor = "text-warning";
+    } else {
+      barColor = "bg-success";
+      textColor = "text-success";
+    }
+  }
+
+  const labelName = labelType === "confidence" ? "CONFIDENCE" : "PROBABILITY";
+
   return (
     <div className="space-y-4">
       <div className="text-xs text-textMuted italic font-sans leading-relaxed">
@@ -81,11 +125,11 @@ export function ReasoningContent({ text, probability }: { text: string; probabil
               initial={{ width: 0 }}
               animate={{ width: `${probability}%` }}
               transition={{ duration: 1.5 }}
-              className={`h-full ${probability > 80 ? 'bg-danger' : probability > 50 ? 'bg-warning' : 'bg-success'}`}
+              className={`h-full ${barColor}`}
             />
           </div>
-          <span className={`text-[10px] font-mono font-bold ${probability > 80 ? 'text-danger' : 'text-primary'}`}>
-            PROBABILITY: {probability}%
+          <span className={`text-[10px] font-mono font-bold ${textColor}`}>
+            {labelName}: {probability}%
           </span>
         </div>
       )}

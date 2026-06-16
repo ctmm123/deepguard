@@ -109,22 +109,48 @@ function StepContent({
         </ContentCard>
       );
     }
-    case AppStatus.CATEGORY:
+    case AppStatus.CATEGORY: {
+      const getRiskVariant = (level: RiskLevel) => {
+        if (level === RiskLevel.LOW) return "success";
+        if (level === RiskLevel.MEDIUM) return "warning";
+        return "danger";
+      };
       return (
         <ContentCard type="reasoning" label="Entity Categorization">
-          <ReasoningContent text={content} probability={result.category.confidence} />
+          <ReasoningContent 
+            text={content} 
+            probability={result.category.confidence} 
+            variant={getRiskVariant(result.risk.level)}
+            labelType="confidence"
+          />
         </ContentCard>
       );
-    case AppStatus.RISK:
+    }
+    case AppStatus.RISK: {
+      const getRiskVariant = (level: RiskLevel) => {
+        if (level === RiskLevel.LOW) return "success";
+        if (level === RiskLevel.MEDIUM) return "warning";
+        return "danger";
+      };
       return (
         <ContentCard type="reasoning" label="Heuristic Risk Assessment">
-          <ReasoningContent text={content} probability={result.risk.confidence} />
+          <ReasoningContent 
+            text={content} 
+            probability={result.risk.confidence} 
+            variant={getRiskVariant(result.risk.level)}
+            labelType="confidence"
+          />
         </ContentCard>
       );
+    }
     case AppStatus.FRAUD:
       return (
         <ContentCard type="reasoning" label="Fraud Probability Vector">
-          <ReasoningContent text={content} probability={result.fraud.probability} />
+          <ReasoningContent 
+            text={content} 
+            probability={result.fraud.probability} 
+            labelType="probability"
+          />
         </ContentCard>
       );
     case AppStatus.STRATEGY:
