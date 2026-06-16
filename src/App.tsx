@@ -47,16 +47,6 @@ export default function App() {
                 {statusText}
               </p>
               
-              {phase === AppStatus.IDLE && (
-                <div className="pt-8 border-t border-white/5 space-y-4 animate-in fade-in slide-in-from-bottom-4 duration-1000">
-                  <p className="text-[#0ea5e9] text-[10px] font-bold uppercase tracking-[0.3em]">Quick Entry</p>
-                  <div className="grid grid-cols-1 gap-2">
-                    <button onClick={() => handleSubmit("ID-9527-X")} className="px-4 py-4 bg-white/5 rounded-lg text-[10px] text-[#6b7280] hover:bg-white/10 transition-colors border border-white/5 min-h-[44px]">Analyze High-Risk Profile</button>
-                    <button onClick={() => handleSubmit("ID-8848-M")} className="px-4 py-4 bg-white/5 rounded-lg text-[10px] text-[#6b7280] hover:bg-white/10 transition-colors border border-white/5 min-h-[44px]">Check Suspicious Activity</button>
-                  </div>
-                </div>
-              )}
-              
               {phase === AppStatus.RESULT && (
                 <button 
                   onClick={reset}

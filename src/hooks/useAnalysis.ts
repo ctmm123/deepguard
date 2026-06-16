@@ -46,7 +46,18 @@ export function useAnalysis() {
 
     // Pick a result randomly for demo (or based on input)
     const riskLevel = randomRiskLevels[Math.floor(Math.random() * randomRiskLevels.length)];
-    const mockResult = mockResults[riskLevel];
+    
+    // 智能格式化 Call ID：如果是纯数字，如 1、2，格式化为 ID-0001, ID-0002
+    let formattedCallId = input.trim();
+    if (/^\d+$/.test(formattedCallId)) {
+      formattedCallId = `ID-${formattedCallId.padStart(4, "0")}`;
+    }
+    
+    const baseResult = mockResults[riskLevel];
+    const mockResult = {
+      ...baseResult,
+      callId: formattedCallId,
+    };
     
     // Set result early so ContentCards can access data during the loop
     setResult(mockResult);
