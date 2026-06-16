@@ -9,7 +9,7 @@ import ContentCard, {
   StrategyContent,
 } from "./ContentCard";
 import { StepOutput } from "../hooks/useAnalysis";
-import { AnalysisResult, AppStatus } from "../types";
+import { AnalysisResult, AppStatus, RiskLevel } from "../types";
 
 interface ThinkingOutputProps {
   steps: StepOutput[];
