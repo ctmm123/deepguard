@@ -57,7 +57,7 @@ export default function ThinkingOutput({ steps, result }: ThinkingOutputProps) {
         <motion.p 
           animate={{ opacity: [0.5, 0.9, 0.5] }}
           transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-          className="mt-8 text-[11px] font-mono tracking-[0.6em] text-primary font-bold uppercase drop-shadow-[0_0_8px_rgba(14,165,233,0.3)] pl-[0.6em]"
+          className="mt-8 text-xs font-mono tracking-[0.6em] text-primary font-bold uppercase drop-shadow-[0_0_8px_rgba(14,165,233,0.3)] pl-[0.6em]"
         >
           SYSTEM IDLE: WAITING FOR INPUT
         </motion.p>

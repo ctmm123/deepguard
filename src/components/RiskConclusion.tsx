@@ -43,7 +43,7 @@ export default function RiskConclusion({
           </span>
         </div>
         
-        <div className="hidden md:flex items-center gap-4 text-[11px] font-mono tracking-tighter">
+        <div className="hidden md:flex items-center gap-4 text-xs font-mono tracking-tighter">
           <div className="flex flex-col">
             <span className="text-textMuted uppercase opacity-40">Call ID</span>
             <span className="text-textSecondary">{callId}</span>
