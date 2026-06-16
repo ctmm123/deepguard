@@ -47,7 +47,7 @@ export default function ResultModal({ result, onClose }: ResultModalProps) {
         aria-labelledby="modal-title"
       >
         {/* Left Side: Transcript Mirror */}
-        <div className="w-full md:w-5/12 p-8 border-b md:border-b-0 md:border-r border-white/5 bg-background/50 flex flex-col">
+        <div className="w-full md:w-5/12 p-8 border-b md:border-b-0 md:border-r border-white/5 bg-[#040915] flex flex-col">
            <div className="flex items-center justify-between mb-6">
               <div className="flex items-center space-x-2 text-[10px] font-bold text-textMuted uppercase tracking-widest font-mono">
                  <span className="text-primary">文本透视</span>

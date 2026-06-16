@@ -45,7 +45,7 @@ export default function App() {
 
       <main className="flex flex-1 overflow-hidden">
         {/* Left Panel: Robot UI (35%) */}
-        <section className="w-[35%] bg-panel/50 border-r border-white/5 flex flex-col items-center justify-center p-12 relative overflow-hidden">
+        <section className="w-[35%] bg-panel border-r border-white/5 flex flex-col items-center justify-center p-12 relative overflow-hidden">
           {/* Animated Background Gradients */}
           <div className="absolute top-0 left-0 w-full h-full pointer-events-none opacity-20">
             <div className="absolute top-[-20%] left-[-20%] w-[80%] h-[80%] bg-[#0ea5e9]/20 rounded-full blur-[120px]" />
