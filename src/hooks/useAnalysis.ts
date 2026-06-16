@@ -102,6 +102,7 @@ export function useAnalysis() {
     const finalMood: Mood = riskLevel === RiskLevel.LOW ? "happy" : riskLevel === RiskLevel.MEDIUM ? "serious" : "danger";
     setMood(finalMood);
     setStatusText(riskLevel === RiskLevel.LOW ? "分析完成，一切正常" : riskLevel === RiskLevel.MEDIUM ? "分析完成，存在风险" : "分析完成，发现高风险");
+    setShowModal(true);
   }, []);
 
   return {
