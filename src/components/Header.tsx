@@ -1,31 +1,7 @@
 
-import React, { useState } from "react";
-import { Play, Search } from "lucide-react";
 import logo from "../logo.svg";
 
-interface HeaderProps {
-  onSubmit: (input: string) => void;
-}
-
-export default function Header({ onSubmit }: HeaderProps) {
-  const [value, setValue] = useState("");
-
-  const handleAnalyze = () => {
-    let targetId = value.trim();
-    if (!targetId) {
-      // 若无输入，随机生成 1000 至 9999 之间的 4 位数字作为演示 Call ID
-      const randNum = Math.floor(1000 + Math.random() * 9000);
-      targetId = randNum.toString();
-    }
-    onSubmit(targetId);
-  };
-
-  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === "Enter") {
-      handleAnalyze();
-    }
-  };
-
+export default function Header() {
   return (
     <header className="flex items-center justify-between px-8 py-4 bg-panel border-b border-white/5 relative z-50">
       <div className="flex items-center gap-3">
@@ -46,27 +22,6 @@ export default function Header({ onSubmit }: HeaderProps) {
             Deep Perception · Guard Every Call
           </span>
         </div>
-      </div>
-
-      <div className="flex items-center gap-4">
-        <div className="relative group">
-          <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-textMuted group-focus-within:text-primary transition-colors" size={16} />
-          <input
-            value={value}
-            onChange={(e) => setValue(e.target.value)}
-            className="bg-background border border-white/5 rounded-xl pl-12 pr-4 py-3 text-text text-sm w-64 outline-none focus:border-primary/50 focus:ring-2 focus:ring-primary/30 transition-all shadow-inner font-sans min-h-[44px]"
-            placeholder="输入 Call ID (例如 1, 2)..."
-            onKeyDown={handleKeyDown}
-          />
-        </div>
-        
-        <button 
-          onClick={handleAnalyze}
-          className="flex items-center gap-2 bg-gradient-to-r from-sky-500 to-blue-600 hover:from-sky-400 hover:to-blue-500 text-white rounded-xl px-6 py-3 text-xs font-bold uppercase transition-all active:scale-95 min-h-[44px] cursor-pointer shadow-[0_0_20px_rgba(14,165,233,0.35)]"
-        >
-          <Play size={14} className="fill-white" />
-          <span>开始分析</span>
-        </button>
       </div>
     </header>
   );

@@ -1,5 +1,7 @@
 
+import { useState } from "react";
 import { AnimatePresence } from "motion/react";
+import { Search, Play } from "lucide-react";
 import MochiRobot from "./components/MochiRobot";
 import Header from "./components/Header";
 import ThinkingOutput from "./components/ThinkingOutput";
@@ -21,14 +23,25 @@ export default function App() {
     reset,
   } = useAnalysis();
 
+  const [inputValue, setInputValue] = useState("");
+
   const handleSubmit = (input: string) => {
     reset();
     startAnalysis(input);
   };
 
+  const handleAnalyze = () => {
+    let targetId = inputValue.trim();
+    if (!targetId) {
+      const randNum = Math.floor(1000 + Math.random() * 9000);
+      targetId = randNum.toString();
+    }
+    handleSubmit(targetId);
+  };
+
   return (
     <div className="flex flex-col h-screen bg-background text-text overflow-hidden font-sans selection:bg-primary/30 selection:text-primary">
-      <Header onSubmit={handleSubmit} />
+      <Header />
 
       <main className="flex flex-1 overflow-hidden">
         {/* Left Panel: Robot UI (35%) */}
@@ -42,10 +55,36 @@ export default function App() {
           <div className="relative z-10 w-full max-w-sm flex flex-col items-center">
             <MochiRobot status={phase} riskLevel={result?.risk.level} mood={mood} />
             
-            <div className="mt-12 text-center space-y-4">
+            <div className="mt-12 text-center space-y-4 w-full flex flex-col items-center">
               <p className="text-[#9ca3af] text-sm font-medium italic min-h-[3rem] animate-pulse">
                 {statusText}
               </p>
+              
+              {phase === AppStatus.IDLE && (
+                <div className="pt-8 border-t border-white/5 space-y-4 w-full animate-in fade-in slide-in-from-bottom-4 duration-1000">
+                  <div className="relative w-full">
+                    <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-textMuted" size={16} />
+                    <input
+                      value={inputValue}
+                      onChange={(e) => setInputValue(e.target.value)}
+                      className="bg-background border border-white/5 rounded-xl pl-12 pr-4 py-3 text-text text-sm w-full outline-none focus:border-primary/50 focus:ring-2 focus:ring-primary/30 transition-all shadow-inner font-sans min-h-[44px]"
+                      placeholder="输入 Call ID (例如 1, 2)..."
+                      onKeyDown={(e) => {
+                        if (e.key === "Enter") {
+                          handleAnalyze();
+                        }
+                      }}
+                    />
+                  </div>
+                  <button 
+                    onClick={handleAnalyze}
+                    className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-sky-500 to-blue-600 hover:from-sky-400 hover:to-blue-500 text-white rounded-xl py-3 text-xs font-bold uppercase transition-all active:scale-95 min-h-[44px] cursor-pointer shadow-[0_0_20px_rgba(14,165,233,0.35)]"
+                  >
+                    <Play size={14} className="fill-white" />
+                    <span>开始分析</span>
+                  </button>
+                </div>
+              )}
               
               {phase === AppStatus.RESULT && (
                 <button 
