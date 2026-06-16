@@ -183,7 +183,7 @@ export default function ResultModal({ result, onClose }: ResultModalProps) {
                 </button>
                 <button 
                   onClick={() => handleAction("操作成功：自动处置策略已确认执行")}
-                  className="px-4 py-2.5 bg-primary text-background rounded-lg text-[10px] font-bold uppercase tracking-widest hover:bg-primary/90 transition-all shadow-[0_0_20px_rgba(14,165,233,0.2)]"
+                  className="px-4 py-2.5 bg-gradient-to-r from-sky-500 to-blue-600 hover:from-sky-400 hover:to-blue-500 text-white rounded-xl text-[10px] font-bold uppercase tracking-widest transition-all active:scale-95 shadow-[0_0_20px_rgba(14,165,233,0.35)] cursor-pointer"
                 >
                    确认策略
                 </button>

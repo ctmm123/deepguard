@@ -88,7 +88,7 @@ export default function RiskConclusion({
 
       <button
         onClick={onViewResult}
-        className="px-6 py-2.5 bg-primary text-background rounded-lg text-xs font-bold uppercase tracking-widest hover:bg-primary/90 transition-all hover:shadow-[0_0_20px_rgba(14,165,233,0.3)] active:scale-95"
+        className="flex items-center justify-center bg-gradient-to-r from-sky-500 to-blue-600 hover:from-sky-400 hover:to-blue-500 text-white rounded-xl px-6 py-3 text-xs font-bold uppercase transition-all active:scale-95 min-h-[44px] cursor-pointer shadow-[0_0_20px_rgba(14,165,233,0.35)]"
       >
         查看完整结果 REPORT
       </button>
