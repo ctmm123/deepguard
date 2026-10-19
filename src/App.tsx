@@ -40,12 +40,12 @@ export default function App() {
   };
 
   return (
-    <div className="flex flex-col h-screen bg-background text-text overflow-hidden font-sans selection:bg-primary/30 selection:text-primary">
+    <div className="flex flex-col h-screen min-h-[720px] bg-background text-text overflow-hidden font-sans selection:bg-primary/30 selection:text-primary">
       <Header />
 
-      <main className="flex flex-1 overflow-hidden">
+      <main className="flex flex-1 min-h-0 flex-col overflow-hidden md:flex-row">
         {/* Left Panel: Robot UI (35%) */}
-        <section className="w-[35%] bg-panel border-r border-white/5 flex flex-col items-center justify-center p-12 relative overflow-hidden">
+        <section className="w-full min-h-[390px] shrink-0 bg-panel border-b border-white/5 flex flex-col items-center justify-center p-6 relative overflow-hidden md:min-h-0 md:w-[35%] md:border-b-0 md:border-r md:p-12">
           {/* Animated Background Gradients */}
           <div className="absolute top-0 left-0 w-full h-full pointer-events-none opacity-20">
             <div className="absolute top-[-20%] left-[-20%] w-[80%] h-[80%] bg-[#0ea5e9]/20 rounded-full blur-[120px]" />
@@ -100,7 +100,7 @@ export default function App() {
         </section>
 
         {/* Right Panel: Analysis Stream (65%) */}
-        <section className="flex-1 bg-background relative flex flex-col">
+        <section className="min-h-0 flex-1 bg-background relative flex flex-col">
           <ThinkingOutput steps={steps} result={result} />
         </section>
       </main>
