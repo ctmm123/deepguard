@@ -115,16 +115,15 @@
     .workflow-item::before { counter-increment: flow; content: "0" counter(flow); color: var(--brand); font-size: 13px; font-weight: 800; letter-spacing: .08em; }
     .workflow-item h3 { margin: -3px 0 7px; font-size: 18px; }
     .workflow-item p { margin: 0; color: var(--muted); font-size: 13px; line-height: 1.75; }
-    .experience { background: white; }
-    .experience-box { display: grid; grid-template-columns: 270px 1fr; margin-top: 36px; border: 1px solid #dfe6f2; border-radius: 15px; overflow: hidden; box-shadow: 0 22px 55px rgba(47,68,117,.07); }
-    .experience-aside { padding: 30px; background: #f7f9ff; border-right: 1px solid #e0e7f4; }
+    .experience-box { display: grid; grid-template-columns: 270px 1fr; margin-top: 36px; border: 1px solid #dfe6f2; border-radius: 15px; overflow: hidden; box-shadow: 0 22px 55px rgba(47,68,117,.07); scroll-margin-top: 90px; }
+    .experience-aside { padding: 30px; color: var(--ink); background: #f7f9ff; border-right: 1px solid #e0e7f4; }
     .experience-aside h3 { margin: 0 0 8px; font-size: 18px; }
     .experience-aside p { margin: 0 0 24px; color: var(--muted); font-size: 12px; line-height: 1.7; }
     .case-button { width: 100%; margin-bottom: 8px; padding: 14px; border: 1px solid transparent; border-radius: 8px; text-align: left; color: #52617c; background: transparent; cursor: pointer; }
     .case-button.active { color: var(--brand-dark); border-color: #dce3ff; background: white; box-shadow: 0 5px 15px rgba(74,108,247,.07); }
     .case-button strong { display: block; font-size: 13px; }
     .case-button small { display: block; margin-top: 4px; font-size: 11px; color: #8492a9; }
-    .experience-main { padding: 29px 34px 32px; min-width: 0; }
+    .experience-main { padding: 29px 34px 32px; min-width: 0; color: var(--ink); background: white; }
     .experience-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-bottom: 18px; border-bottom: 1px solid var(--line); }
     .experience-top strong { font-size: 15px; }
     .experience-top span { color: #8b98ac; font-size: 11px; }
@@ -146,9 +145,11 @@
     .live-demo .eyebrow { color: #a9b7ff; }
     .live-demo .section-copy { color: #c0cbe0; }
     .live-demo .section-head { margin-bottom: 28px; }
+    .live-demo .experience-box { margin-top: 0; margin-bottom: 24px; }
+    .live-demo .experience-note { color: #b9c6dc; }
     .demo-status { display: inline-flex; flex: none; align-items: center; gap: 9px; padding: 9px 12px; border: 1px solid rgba(255,255,255,.16); border-radius: 999px; color: #d4ddf2; font-size: 12px; }
     .demo-status span { width: 7px; height: 7px; border-radius: 50%; background: #72d6b3; box-shadow: 0 0 0 4px rgba(114,214,179,.13); }
-    .demo-frame-wrap { overflow: hidden; border: 1px solid rgba(255,255,255,.14); border-radius: 17px; background: #060d1c; box-shadow: 0 28px 70px rgba(0,0,0,.22); }
+    .demo-frame-wrap { overflow: hidden; border: 1px solid rgba(255,255,255,.14); border-radius: 17px; background: #060d1c; box-shadow: 0 28px 70px rgba(0,0,0,.22); scroll-margin-top: calc(var(--nav-height) + 14px); }
     .demo-frame { display: block; width: 100%; height: 820px; border: 0; background: #060d1c; }
     .demo-disclaimer { margin: 14px 0 0; color: #aebbd2; font-size: 12px; line-height: 1.7; }
     .scenarios { background: #f6f8fc; }
@@ -157,11 +158,6 @@
     .scenario-icon { flex: none; width: 45px; height: 45px; }
     .scenario-card h3 { margin: 1px 0 9px; font-size: 17px; }
     .scenario-card p { margin: 0; color: var(--muted); font-size: 13px; line-height: 1.75; }
-    .cta-section { padding: 88px 0; background: #172446; color: white; }
-    .cta-inner { display: flex; align-items: center; justify-content: space-between; gap: 35px; }
-    .cta-inner .eyebrow { color: #a9b7ff; }
-    .cta-inner h2 { margin: 10px 0 13px; font-family: var(--font-display); font-size: clamp(28px,3vw,40px); letter-spacing: -.04em; }
-    .cta-inner p { margin: 0; max-width: 610px; color: #b7c3da; font-size: 14px; line-height: 1.8; }
     .footer { padding: 28px 0; background: #111b34; color: #aab6cc; }
     .footer-inner { display: flex; align-items: center; justify-content: space-between; gap: 18px; font-size: 12px; }
     .footer .brand-name { color: white; font-size: 16px; }
@@ -204,8 +200,6 @@
       .live-demo .section-head { display: flex; align-items: start; flex-direction: column; gap: 18px; }
       .demo-frame { height: 980px; }
       .case-button { display: inline-block; width: calc(50% - 6px); margin-right: 6px; vertical-align: top; }
-      .cta-inner { display: block; }
-      .cta-inner .button { margin-top: 26px; }
       .footer-inner { align-items: start; flex-direction: column; }
     }
     @media (max-width: 420px) {
@@ -233,16 +227,16 @@
       <nav class="desktop-nav" aria-label="主导航">
         <a href="#capabilities">产品能力</a>
         <a href="#workflow">分析流程</a>
-        <a href="#live-demo">在线体验</a>
+        <a href="#experience">在线体验</a>
         <a href="#scenarios">应用场景</a>
       </nav>
-      <a class="button button-primary header-cta" href="#live-demo">开始体验 <span class="arrow" aria-hidden="true">→</span></a>
+      <a class="button button-primary header-cta" href="#live-demo-input">开始体验 <span class="arrow" aria-hidden="true">→</span></a>
       <details class="mobile-nav">
         <summary aria-label="打开导航菜单">☰</summary>
         <nav aria-label="移动端导航">
           <a href="#capabilities">产品能力</a>
           <a href="#workflow">分析流程</a>
-          <a href="#live-demo">在线体验</a>
+          <a href="#experience">在线体验</a>
           <a href="#scenarios">应用场景</a>
         </nav>
       </details>
@@ -252,14 +246,14 @@
     <section class="hero" aria-labelledby="hero-title">
       <div class="wrap hero-inner">
         <div class="hero-copy">
-          <span class="hero-marker">AI 语音风控 · 产品展示</span>
+          <span class="hero-marker">AI 语音风控 · 识别有据</span>
           <h1 id="hero-title">让通话风险，<br><em>有迹可循。</em></h1>
-          <p class="hero-lead">从语音转写、线索提取到风险判断，让每一步分析清晰呈现，帮助业务团队更快理解和复核通话风险。</p>
+          <p class="hero-lead">DeepGuard 从通话内容与号码行为中提取风险线索，并呈现判断依据和处理建议，帮助业务团队快速复核。</p>
           <div class="hero-actions">
-            <a class="button button-primary" href="#live-demo">开始体验 <span class="arrow" aria-hidden="true">→</span></a>
+            <a class="button button-primary" href="#live-demo-input">开始体验 <span class="arrow" aria-hidden="true">→</span></a>
             <a class="button button-outline" href="#capabilities">了解产品能力</a>
           </div>
-          <p class="hero-footnote">当前页面为产品展示稿；演示案例为模拟内容。</p>
+          <p class="hero-footnote">页面案例与交互使用模拟数据，仅用于展示分析流程。</p>
         </div>
         <div class="hero-art" aria-label="风险分析流程示意图">
           <div class="signal-window">
@@ -293,7 +287,7 @@
       <div class="quick-nav-inner">
         <a href="#capabilities"><span><strong>产品能力</strong><small>看见核心价值</small></span><span class="arrow" aria-hidden="true">↗</span></a>
         <a href="#workflow"><span><strong>分析流程</strong><small>理解判断路径</small></span><span class="arrow" aria-hidden="true">↗</span></a>
-        <a href="#live-demo"><span><strong>在线体验</strong><small>在官网页面中操作</small></span><span class="arrow" aria-hidden="true">↓</span></a>
+        <a href="#live-demo-input"><span><strong>在线体验</strong><small>在官网页面中操作</small></span><span class="arrow" aria-hidden="true">↓</span></a>
         <a href="#scenarios"><span><strong>应用场景</strong><small>聚焦语音业务</small></span><span class="arrow" aria-hidden="true">↗</span></a>
       </div>
     </div>
@@ -301,7 +295,7 @@
       <div class="wrap">
         <div class="section-head">
           <div><span class="eyebrow">Capabilities / 产品能力</span><h2 id="capabilities-title" class="section-title">把风险线索变成可理解的判断</h2></div>
-          <p class="section-copy">围绕语音呼叫场景，把分散在内容与行为中的信息放到同一条分析链路中。</p>
+          <p class="section-copy">结合通话内容与号码行为线索，呈现风险判断依据，便于业务团队理解和复核。</p>
         </div>
         <div class="capability-grid">
           <article class="capability-card"><span class="cap-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 9v6"/><path d="M8 6v12"/><path d="M12 4v16"/><path d="M16 7v10"/><path d="M20 9v6"/></svg></span><h3>听懂通话内容</h3><p>转写并区分通话双方，保留关键时间点，为后续分析提供上下文。</p><a class="mini-link" href="#workflow">查看分析流程 <span aria-hidden="true">→</span></a></article>
@@ -319,19 +313,24 @@
           <a class="button button-outline" href="#experience">查看案例演示 <span class="arrow" aria-hidden="true">→</span></a>
         </div>
         <div class="workflow-list">
-          <div class="workflow-item"><div><h3>接入通话材料</h3><p>以通话录音或通话标识为分析入口；实际接入方式以部署版本为准。</p></div></div>
+          <div class="workflow-item"><div><h3>接入通话材料</h3><p>使用通话标识进入分析流程；实际接入方式以部署版本为准。</p></div></div>
           <div class="workflow-item"><div><h3>还原通话上下文</h3><p>语音转写后按说话方和时间顺序呈现内容，便于定位关键话术。</p></div></div>
           <div class="workflow-item"><div><h3>交叉分析风险线索</h3><p>结合内容、号码与行为特征，梳理与风险判断相关的依据。</p></div></div>
           <div class="workflow-item"><div><h3>给出处理与复核建议</h3><p>输出风险判断和建议，保留人工核对空间，让处理过程可以回看。</p></div></div>
         </div>
       </div>
     </section>
-    <section id="experience" class="section experience" aria-labelledby="experience-title">
+    <section id="live-demo" class="section live-demo" aria-labelledby="live-demo-title">
       <div class="wrap">
-        <span class="eyebrow">Experience / 在线体验</span>
-        <h2 id="experience-title" class="section-title">先看示例，再开始体验</h2>
-        <p class="section-copy">先通过案例了解分析结果的呈现方式，再继续向下，在官网内直接操作功能体验。</p>
-        <div class="experience-box">
+        <span class="eyebrow">Interactive demo / 在线体验</span>
+        <div class="section-head">
+          <div>
+            <h2 id="live-demo-title" class="section-title">先看案例，再体验分析流程</h2>
+            <p class="section-copy">先切换模拟案例，了解通话内容与风险线索；再在下方输入 Call ID，体验分析过程。</p>
+          </div>
+          <span class="demo-status"><span></span>模拟交互</span>
+        </div>
+        <div class="experience-box" id="experience">
           <div class="experience-aside">
             <h3>选择模拟场景</h3><p>点击案例，查看转写线索和不同的处理建议。</p>
             <button class="case-button active" type="button" data-case-button="safe" aria-pressed="true"><strong>日常业务咨询</strong><small>普通服务通话示例</small></button>
@@ -360,19 +359,7 @@
           </div>
         </div>
         <p class="experience-note">示例文字为虚构内容，仅用于说明信息组织方式。</p>
-      </div>
-    </section>
-    <section id="live-demo" class="section live-demo" aria-labelledby="live-demo-title">
-      <div class="wrap">
-        <span class="eyebrow">Interactive demo / 功能体验</span>
-        <div class="section-head">
-          <div>
-            <h2 id="live-demo-title" class="section-title">在当前页面体验分析流程</h2>
-            <p class="section-copy">输入 Call ID 开始体验，查看风险线索与结果呈现。页面内可直接完成操作。</p>
-          </div>
-          <span class="demo-status"><span></span>交互演示</span>
-        </div>
-        <div class="demo-frame-wrap">
+        <div class="demo-frame-wrap" id="live-demo-input">
           <iframe class="demo-frame" src="./demo/?embed=1" title="DeepGuard 语音风控功能体验" loading="lazy" allowfullscreen></iframe>
         </div>
         <p class="demo-disclaimer">当前体验使用模拟数据，分析结果仅用于展示页面交互，不构成真实风险判断。</p>
@@ -389,18 +376,12 @@
         </div>
       </div>
     </section>
-    <section class="cta-section">
-      <div class="wrap cta-inner">
-        <div><span class="eyebrow">Explore the workflow</span><h2>从一段通话，理解整条分析链路</h2><p>在官网内输入 Call ID，体验风险分析过程与结果呈现。</p></div>
-        <a class="button button-primary" href="#live-demo">开始体验 <span class="arrow" aria-hidden="true">↓</span></a>
-      </div>
-    </section>
   </main>
   <footer class="footer">
     <div class="wrap footer-inner">
       <div class="brand"><img src="./assets/brand-icon.svg" alt=""><span><span class="brand-name" data-brand>DeepGuard</span><span class="brand-caption">语音风控智能体</span></span></div>
       <nav class="footer-links" aria-label="页脚导航"><a href="#capabilities">产品能力</a><a href="#workflow">分析流程</a><a href="#live-demo">在线体验</a></nav>
-      <span>产品官网设计预览 · 2026</span>
+      <span>精准识别通话风险，不影响正常通话</span>
     </div>
   </footer>
   <script>
