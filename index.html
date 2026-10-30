@@ -23,7 +23,7 @@
       --font-mono: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
     }
     * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: auto; }
     body { margin: 0; color: var(--ink); background: var(--white); font-family: var(--font-body); -webkit-font-smoothing: antialiased; }
     button, a { -webkit-tap-highlight-color: transparent; }
     button { font: inherit; }
@@ -57,7 +57,7 @@
     .hero-copy { position: relative; z-index: 1; }
     .hero-marker { display: inline-flex; align-items: center; gap: 9px; padding: 8px 12px; border: 1px solid rgba(74,108,247,.18); border-radius: 6px; color: var(--brand-dark); background: rgba(255,255,255,.7); font-size: 12px; font-weight: 750; letter-spacing: .04em; }
     .hero-marker::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--brand); box-shadow: 0 0 0 4px rgba(74,108,247,.11); }
-    h1 { margin: 25px 0 24px; max-width: 650px; font-family: var(--font-display); font-size: clamp(45px, 5.5vw, 76px); line-height: 1.1; letter-spacing: -.065em; font-weight: 780; }
+    h1 { margin: 25px 0 24px; max-width: 650px; font-family: var(--font-display); font-size: clamp(42px, 4.8vw, 66px); line-height: 1.1; letter-spacing: -.065em; font-weight: 780; }
     h1 em { color: var(--brand); font-style: normal; }
     .hero-lead { max-width: 545px; color: #50617e; font-size: clamp(16px,1.55vw,19px); line-height: 1.85; }
     .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 33px; }
@@ -115,6 +115,36 @@
     .workflow-item::before { counter-increment: flow; content: "0" counter(flow); color: var(--brand); font-size: 13px; font-weight: 800; letter-spacing: .08em; }
     .workflow-item h3 { margin: -3px 0 7px; font-size: 18px; }
     .workflow-item p { margin: 0; color: var(--muted); font-size: 13px; line-height: 1.75; }
+    .ai-reports { background: white; }
+    .ai-report-layout { display: grid; grid-template-columns: minmax(0,.9fr) minmax(0,1.1fr); gap: 54px; align-items: center; }
+    .ai-report-copy .section-copy { margin-bottom: 25px; }
+    .ai-report-feature-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 13px; }
+    .ai-report-feature { display: flex; align-items: start; gap: 12px; min-width: 0; padding: 16px; border: 1px solid var(--line); border-radius: 10px; background: #fff; }
+    .ai-report-feature-icon { display: grid; place-items: center; flex: none; width: 34px; height: 34px; border-radius: 9px; color: var(--brand-dark); background: #edf0ff; font-family: var(--font-mono); font-size: 10px; font-weight: 800; }
+    .ai-report-feature h3 { margin: 2px 0 6px; font-size: 14px; }
+    .ai-report-feature p { margin: 0; color: var(--muted); font-size: 12px; line-height: 1.65; }
+    .ai-report-preview { min-width: 0; margin: 0; padding: 20px; border: 1px solid #dfe6f2; border-radius: 16px; background: linear-gradient(145deg,#f7f9ff,#eef2fb); box-shadow: 0 22px 55px rgba(47,68,117,.08); }
+    .ai-report-preview-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 16px; }
+    .ai-report-preview-title { display: flex; align-items: center; gap: 9px; color: var(--ink); font-size: 13px; font-weight: 750; }
+    .ai-report-avatar { display: grid; place-items: center; flex: none; width: 28px; height: 28px; border-radius: 8px; color: white; background: var(--brand); font-size: 10px; font-weight: 800; }
+    .ai-report-sample { flex: none; padding: 6px 8px; border: 1px solid #e2e8f2; border-radius: 999px; color: #68758c; background: white; font-size: 10px; }
+    .ai-report-conversation { display: grid; gap: 12px; }
+    .ai-report-bubble { max-width: 92%; padding: 12px 15px; border: 1px solid transparent; border-radius: 10px; font-size: 12px; line-height: 1.65; }
+    .ai-report-user { justify-self: end; color: #334059; border-color: #dbe3f7; background: #e7ecfa; }
+    .ai-report-assistant { display: flex; justify-self: start; align-items: flex-start; gap: 10px; color: #526079; border-color: #e8ecf4; background: white; }
+    .ai-report-assistant strong { display: block; margin-bottom: 4px; color: var(--ink); }
+    .ai-report-metrics { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 10px; margin-top: 14px; }
+    .ai-report-metric { min-width: 0; padding: 13px; border: 1px solid #e5eaf3; border-radius: 9px; background: white; }
+    .ai-report-metric span { display: block; color: #7c899e; font-size: 10px; }
+    .ai-report-metric strong { display: block; margin: 8px 0 4px; color: var(--ink); font-size: 13px; }
+    .ai-report-metric small { display: block; color: #95a0b1; font-size: 9px; }
+    .ai-report-alert { display: flex; align-items: center; gap: 11px; margin-top: 12px; padding: 12px; border: 1px solid #f0e4d0; border-radius: 9px; background: #fffaf2; }
+    .ai-report-alert-icon { display: grid; place-items: center; flex: none; width: 27px; height: 27px; border-radius: 7px; color: #ac7832; background: #fbedd5; font-weight: 800; }
+    .ai-report-alert-copy { min-width: 0; }
+    .ai-report-alert strong { display: block; color: #72552d; font-size: 11px; }
+    .ai-report-alert small { display: block; margin-top: 3px; color: #907a5c; font-size: 10px; line-height: 1.5; }
+    .ai-report-alert-label { flex: none; margin-left: auto; color: #9a814f; font-size: 9px; }
+    .ai-report-caption { margin: 13px 0 0; color: #7d8aa0; font-size: 10px; line-height: 1.65; }
     .experience-box { display: grid; grid-template-columns: 270px 1fr; margin-top: 36px; border: 1px solid #dfe6f2; border-radius: 15px; overflow: hidden; box-shadow: 0 22px 55px rgba(47,68,117,.07); scroll-margin-top: 90px; }
     .experience-aside { padding: 30px; color: var(--ink); background: #f7f9ff; border-right: 1px solid #e0e7f4; }
     .experience-aside h3 { margin: 0 0 8px; font-size: 18px; }
@@ -141,17 +171,16 @@
     .result-pill.safe { color: #14856b; background: #eaf8f3; }
     .result-summary { margin: 18px 0 0; color: #526079; font-size: 12px; line-height: 1.75; }
     .experience-note { margin: 15px 0 0; color: #8895a9; font-size: 11px; }
-    .live-demo { background: #101c37; color: white; scroll-margin-top: calc(var(--nav-height) + 14px); }
-    .live-demo .eyebrow { color: #a9b7ff; }
-    .live-demo .section-copy { color: #c0cbe0; }
+    .live-demo { background: linear-gradient(180deg, #f5f7fc 0%, #eef2fb 100%); color: var(--ink); scroll-margin-top: calc(var(--nav-height) + 12px); }
+    .live-demo .eyebrow { color: var(--brand-dark); }
+    .live-demo .section-copy { color: var(--muted); }
     .live-demo .section-head { margin-bottom: 28px; }
     .live-demo .experience-box { margin-top: 0; margin-bottom: 24px; }
-    .live-demo .experience-note { color: #b9c6dc; }
-    .demo-status { display: inline-flex; flex: none; align-items: center; gap: 9px; padding: 9px 12px; border: 1px solid rgba(255,255,255,.16); border-radius: 999px; color: #d4ddf2; font-size: 12px; }
+    .demo-status { display: inline-flex; flex: none; align-items: center; gap: 9px; padding: 9px 12px; border: 1px solid #dce4f2; border-radius: 999px; color: #52617c; background: rgba(255,255,255,.72); font-size: 12px; }
     .demo-status span { width: 7px; height: 7px; border-radius: 50%; background: #72d6b3; box-shadow: 0 0 0 4px rgba(114,214,179,.13); }
-    .demo-frame-wrap { overflow: hidden; border: 1px solid rgba(255,255,255,.14); border-radius: 17px; background: #060d1c; box-shadow: 0 28px 70px rgba(0,0,0,.22); scroll-margin-top: calc(var(--nav-height) + 14px); }
+    .demo-frame-wrap { overflow: hidden; border: 1px solid #d8e1f1; border-radius: 17px; background: white; box-shadow: 0 20px 50px rgba(32,50,90,.12); scroll-margin-top: calc(var(--nav-height) + 14px); }
     .demo-frame { display: block; width: 100%; height: 820px; border: 0; background: #060d1c; }
-    .demo-disclaimer { margin: 14px 0 0; color: #aebbd2; font-size: 12px; line-height: 1.7; }
+    .demo-disclaimer { margin: 14px 0 0; color: #62708a; font-size: 12px; line-height: 1.7; }
     .scenarios { background: #f6f8fc; }
     .scenario-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 18px; margin-top: 37px; }
     .scenario-card { display: flex; gap: 19px; align-items: start; min-height: 174px; padding: 29px; border: 1px solid #e2e8f2; border-radius: 11px; background: white; }
@@ -175,12 +204,13 @@
       .hero-inner { gap: 30px; }
       .floating-note { right: 0; }
       .workflow-layout { gap: 35px; }
+      .ai-report-layout { grid-template-columns: 1fr; gap: 34px; }
     }
     @media (max-width: 760px) {
       :root { --nav-height: 64px; }
       .wrap { width: min(100% - 32px, 580px); }
       .hero-inner { grid-template-columns: 1fr; padding: 58px 0 87px; gap: 48px; }
-      h1 { font-size: clamp(43px,10vw,62px); }
+      h1 { font-size: clamp(42px,10vw,62px); }
       .hero-lead { font-size: 16px; }
       .hero-art { padding-right: 9px; }
       .signal-window { transform: none; }
@@ -193,6 +223,7 @@
       .section { padding: 77px 0; }
       .section-head { display: block; }
       .capability-grid, .workflow-layout, .scenario-grid, .experience-box { grid-template-columns: 1fr; }
+      .ai-report-feature-grid { grid-template-columns: 1fr; }
       .capability-card { min-height: 225px; }
       .workflow-intro { position: static; }
       .experience-aside { border-right: 0; border-bottom: 1px solid var(--line); padding: 22px; }
@@ -226,17 +257,19 @@
       </a>
       <nav class="desktop-nav" aria-label="主导航">
         <a href="#capabilities">产品能力</a>
+        <a href="#ai-reports">AI 报表</a>
         <a href="#workflow">分析流程</a>
-        <a href="#experience">在线体验</a>
+        <a href="#live-demo">在线体验</a>
         <a href="#scenarios">应用场景</a>
       </nav>
-      <a class="button button-primary header-cta" href="#live-demo-input">开始体验 <span class="arrow" aria-hidden="true">→</span></a>
+      <a class="button button-primary header-cta" href="#live-demo">开始体验 <span class="arrow" aria-hidden="true">→</span></a>
       <details class="mobile-nav">
         <summary aria-label="打开导航菜单">☰</summary>
         <nav aria-label="移动端导航">
           <a href="#capabilities">产品能力</a>
+          <a href="#ai-reports">AI 报表</a>
           <a href="#workflow">分析流程</a>
-          <a href="#experience">在线体验</a>
+          <a href="#live-demo">在线体验</a>
           <a href="#scenarios">应用场景</a>
         </nav>
       </details>
@@ -247,10 +280,10 @@
       <div class="wrap hero-inner">
         <div class="hero-copy">
           <span class="hero-marker">AI 语音风控 · 识别有据</span>
-          <h1 id="hero-title">让通话风险，<br><em>有迹可循。</em></h1>
-          <p class="hero-lead">DeepGuard 从通话内容与号码行为中提取风险线索，并呈现判断依据和处理建议，帮助业务团队快速复核。</p>
+          <h1 id="hero-title">深度感知，<br><em>守护每一通通话。</em></h1>
+          <p class="hero-lead">让通话风险，有迹可循。DeepGuard 从通话内容与号码行为中提取风险线索，并呈现判断依据和处理建议，帮助业务团队快速复核。</p>
           <div class="hero-actions">
-            <a class="button button-primary" href="#live-demo-input">开始体验 <span class="arrow" aria-hidden="true">→</span></a>
+            <a class="button button-primary" href="#live-demo">开始体验 <span class="arrow" aria-hidden="true">→</span></a>
             <a class="button button-outline" href="#capabilities">了解产品能力</a>
           </div>
           <p class="hero-footnote">页面案例与交互使用模拟数据，仅用于展示分析流程。</p>
@@ -287,7 +320,7 @@
       <div class="quick-nav-inner">
         <a href="#capabilities"><span><strong>产品能力</strong><small>看见核心价值</small></span><span class="arrow" aria-hidden="true">↗</span></a>
         <a href="#workflow"><span><strong>分析流程</strong><small>理解判断路径</small></span><span class="arrow" aria-hidden="true">↗</span></a>
-        <a href="#live-demo-input"><span><strong>在线体验</strong><small>在官网页面中操作</small></span><span class="arrow" aria-hidden="true">↓</span></a>
+        <a href="#live-demo"><span><strong>在线体验</strong><small>在官网页面中操作</small></span><span class="arrow" aria-hidden="true">↗</span></a>
         <a href="#scenarios"><span><strong>应用场景</strong><small>聚焦语音业务</small></span><span class="arrow" aria-hidden="true">↗</span></a>
       </div>
     </div>
@@ -317,6 +350,41 @@
           <div class="workflow-item"><div><h3>还原通话上下文</h3><p>语音转写后按说话方和时间顺序呈现内容，便于定位关键话术。</p></div></div>
           <div class="workflow-item"><div><h3>交叉分析风险线索</h3><p>结合内容、号码与行为特征，梳理与风险判断相关的依据。</p></div></div>
           <div class="workflow-item"><div><h3>给出处理与复核建议</h3><p>输出风险判断和建议，保留人工核对空间，让处理过程可以回看。</p></div></div>
+        </div>
+      </div>
+    </section>
+    <section id="ai-reports" class="section ai-reports" aria-labelledby="ai-reports-title">
+      <div class="wrap">
+        <div class="section-head">
+          <div><span class="eyebrow">Voice Ops / AI 报表</span><h2 id="ai-reports-title" class="section-title">让语音业务数据，开口就能问</h2></div>
+          <p class="section-copy">面向钉钉工作场景，用自然语言查看收入、话务量和接通率等指标；日报与异常提醒把需要关注的信息主动送到团队面前。</p>
+        </div>
+        <div class="ai-report-layout">
+          <div class="ai-report-copy">
+            <div class="ai-report-feature-grid">
+              <article class="ai-report-feature"><span class="ai-report-feature-icon" aria-hidden="true">01</span><div><h3>自然语言查数</h3><p>按客户或区域询问收入、话务量、接通率等业务指标。</p></div></article>
+              <article class="ai-report-feature"><span class="ai-report-feature-icon" aria-hidden="true">02</span><div><h3>日报自动推送</h3><p>将每日业务概览推送到指定的钉钉会话。</p></div></article>
+              <article class="ai-report-feature"><span class="ai-report-feature-icon" aria-hidden="true">03</span><div><h3>异常主动提醒</h3><p>按约定的指标规则，提示需要及时关注的变化。</p></div></article>
+              <article class="ai-report-feature"><span class="ai-report-feature-icon" aria-hidden="true">04</span><div><h3>按身份查看数据</h3><p>依据钉钉身份与授权范围呈现对应的业务数据。</p></div></article>
+            </div>
+          </div>
+          <figure class="ai-report-preview" aria-label="AI 报表查询界面示意，所有数据均为虚构">
+            <div class="ai-report-preview-top">
+              <div class="ai-report-preview-title"><span class="ai-report-avatar" aria-hidden="true">AI</span>语音业务助手</div>
+              <span class="ai-report-sample">界面示意 · 虚构数据</span>
+            </div>
+            <div class="ai-report-conversation">
+              <div class="ai-report-bubble ai-report-user">帮我看一下今天华东区域的接通率和话务量。</div>
+              <div class="ai-report-bubble ai-report-assistant"><span class="ai-report-avatar" aria-hidden="true">AI</span><div><strong>已生成查询结果（示意）</strong>可按区域查看业务指标，并结合日报了解变化趋势。</div></div>
+            </div>
+            <div class="ai-report-metrics" aria-label="示例报表指标">
+              <div class="ai-report-metric"><span>今日话务量</span><strong>示意数据</strong><small>区域维度</small></div>
+              <div class="ai-report-metric"><span>接通率</span><strong>示意数据</strong><small>当日概览</small></div>
+              <div class="ai-report-metric"><span>收入变化</span><strong>示意数据</strong><small>对比昨日</small></div>
+            </div>
+            <div class="ai-report-alert"><span class="ai-report-alert-icon" aria-hidden="true">!</span><div class="ai-report-alert-copy"><strong>异常提醒规则示意</strong><small>指标达到约定条件时，提示相关负责人关注。</small></div><span class="ai-report-alert-label">规则示意</span></div>
+            <figcaption class="ai-report-caption">这是产品能力的界面示意，不连接钉钉或真实语音业务数据；正式使用需完成实际系统接入。</figcaption>
+          </figure>
         </div>
       </div>
     </section>
@@ -380,7 +448,7 @@
   <footer class="footer">
     <div class="wrap footer-inner">
       <div class="brand"><img src="./assets/brand-icon.svg" alt=""><span><span class="brand-name" data-brand>DeepGuard</span><span class="brand-caption">语音风控智能体</span></span></div>
-      <nav class="footer-links" aria-label="页脚导航"><a href="#capabilities">产品能力</a><a href="#workflow">分析流程</a><a href="#live-demo">在线体验</a></nav>
+      <nav class="footer-links" aria-label="页脚导航"><a href="#capabilities">产品能力</a><a href="#ai-reports">AI 报表</a><a href="#workflow">分析流程</a><a href="#live-demo">在线体验</a></nav>
       <span>精准识别通话风险，不影响正常通话</span>
     </div>
   </footer>

@@ -17,10 +17,13 @@ interface ThinkingOutputProps {
 }
 
 export default function ThinkingOutput({ steps, result }: ThinkingOutputProps) {
-  const bottomRef = useRef<HTMLDivElement>(null);
+  const outputRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    bottomRef.current?.scrollIntoView({ behavior: "smooth" });
+    const output = outputRef.current;
+    if (output) {
+      output.scrollTo({ top: output.scrollHeight, behavior: "smooth" });
+    }
   }, [steps]);
 
   if (steps.length === 0) {
@@ -66,7 +69,7 @@ export default function ThinkingOutput({ steps, result }: ThinkingOutputProps) {
   }
 
   return (
-    <div className="flex-1 p-8 overflow-y-auto flex flex-col gap-8 custom-scrollbar">
+    <div ref={outputRef} className="flex-1 p-8 overflow-y-auto flex flex-col gap-8 custom-scrollbar">
       {steps.map((step, i) => (
         <div key={i} className="space-y-4">
           <ThoughtBubble text={step.thought} />
@@ -77,7 +80,7 @@ export default function ThinkingOutput({ steps, result }: ThinkingOutputProps) {
           )}
         </div>
       ))}
-      <div ref={bottomRef} className="h-20" />
+      <div className="h-20" />
     </div>
   );
 }
